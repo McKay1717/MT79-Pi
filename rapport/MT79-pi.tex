@@ -1,0 +1,47 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+% Title Page
+\title{Approximation du nombre $$\pi$$}
+\author{Nicolas Iung, Aurélien Blais}
+
+
+
+\begin{document}
+\maketitle
+
+\chapter{Méthode des séries}
+\section{Somme des inverses des carrés}
+
+\subsection{Question 1}
+\subsubsection{Montrer que $a_0$ = 0}
+On sait d'après l'énoncé que sur l'intervalle $]0, \pi[$, $f(t) = 1$ et que sur l'intervalle $]-\pi, 0[$, $f(t) = -1$\\
+
+\begin{align*}
+a_0 &= \frac{1}{2\pi} \int_{0}^{2\pi} f(t)dt \\
+a_0 &= \frac{1}{2\pi} (\int_{0}^{\pi} 1 dt + \int_{\pi}^{2\pi} -1 dt)\\
+a_0 &= \frac{1}{2\pi} (\pi - \pi)\\
+a_0 &= 0
+\end{align*}
+
+\subsubsection{Montrer que $a_n$ = 0}
+\begin{align*}
+a_n &= \frac{2}{2\pi} \int_{0}^{2\pi} f(t)cos(nt) dt \\
+a_n &= \frac{2}{2\pi} (\int_{0}^{\pi} cos(nt) dt + \int_{\pi}^{2\pi} -cos(nt) dt)\\
+a_n &= \frac{2}{2\pi} (\frac{sin(n\pi)}{n} - \frac{sin(n\pi)}{n} )\\
+a_n &= 0
+\end{align*}
+
+\subsubsection{Montrer que $b_n = \frac{4}{2\pi}(\frac{1-cos(n\pi)}{n})$}
+\begin{align*}
+b_n &= \frac{2}{2\pi} \int_{0}^{2\pi} f(t) sin(nt) dt\\
+b_n &= \frac{2}{2\pi} (\int_{0}^{\pi} sin(nt) dt + \int_{\pi}^{2\pi} -sin(nt) dt)\\
+b_n &= \frac{2}{2\pi} [(\frac{1}{n} - \frac{cos(n\pi)}{n}) + \frac{cos(2n\pi) - cos(n\pi)}{n}]\\
+b_n &= \frac{2}{2\pi} [\frac{1}{n} (-cos(n\pi) + 1 + cos(2n\pi) - cos(n\pi))]\\
+b_n &= \frac{2}{2\pi} [\frac{1}{n} (-2cos(n\pi) + 2)]\\
+b_n &= \frac{2}{2\pi} [\frac{2}{n} (-cos(n\pi) + 1)]\\
+b_n &= \frac{4}{2\pi} [\frac{1 - cos(n\pi)}{n}]
+\end{align*}
+
+\end{document}          
