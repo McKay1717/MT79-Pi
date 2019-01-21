@@ -44,4 +44,35 @@ b_n &= \frac{2}{2\pi} [\frac{2}{n} (-cos(n\pi) + 1)]\\
 b_n &= \frac{4}{2\pi} [\frac{1 - cos(n\pi)}{n}]
 \end{align*}
 
+\subsection{Question 2}
+Etudions $b_n$ lorsque n est pair ou impaire.
+Cela reviens a calculer $b_n$ pour $2p$ et $2p+1$
+
+Calculons $b_{2p}$
+\begin{equation*}
+b_{2p} = \frac{4}{2\pi}*\frac{1-cos(2p\pi)}{2p}\\
+\end{equation*}
+Or $\forall x  	\in R, cos(2p\pi) \Leftrightarrow  cos(2\pi) = 1$
+\begin{align*}
+b_{2p} &= \frac{4}{2\pi}*\frac{1-1}{2p}\\
+b_{2p} &= \frac{4}{2\pi}*\frac{0}{2p}\\
+b_{2p} &= \frac{4}{2\pi}*0\\
+b_{2p} &= 0
+\end{align*}
+\bigskip
+Pour les impaires, Calculons $b_{2p+1}$
+\begin{align*}
+b_{2p+1} &= \frac{4}{2\pi}*\frac{1-cos((2p+1)\pi)}{2p+1}\\
+b_{2p+1} &= \frac{4}{2\pi}*\frac{1-cos((2p\pi+\pi)}{2p+1}\\
+\end{align*}
+Or $\forall x  	\in R, cos(2p\pi) \Leftrightarrow  cos(2\pi)$
+\begin{align*}
+b_{2p+1} &= \frac{4}{2\pi}*\frac{1-cos((2\pi+\pi)}{2p+1}\\
+b_{2p+1} &= \frac{4}{2\pi}*\frac{1-cos((3\pi)}{2p+1}\\
+b_{2p+1} &= \frac{4}{2\pi}*\frac{1-(-1)}{2p+1}\\
+b_{2p+1} &= \frac{4}{2\pi}*\frac{2}{2p+1}\\
+b_{2p+1} &= \frac{2*2}{2*\pi}*\frac{2}{2p+1}\\
+b_{2p+1} &= \frac{2}{\pi}*\frac{2}{2p+1}\\
+b_{2p+1} &= \frac{4}{(2p+1)\pi}
+\end{align*}
 \end{document}          
