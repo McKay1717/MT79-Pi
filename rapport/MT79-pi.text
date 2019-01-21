@@ -1,0 +1,14 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+
+% Title Page
+\title{Approximation du nombre $$\pi$$}
+\author{Nicolas Iung, Aurélien Blais}
+
+
+
+\begin{document}
+\maketitle
+
+
+\end{document}          
