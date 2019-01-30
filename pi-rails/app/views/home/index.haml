@@ -1,0 +1,95 @@
+.container
+  .card-columns
+    .card
+      .card-header SerieInvCarres
+      .card-body
+        .text-center n = 5 000 000
+        %table.table.table-sm.small
+          %tr
+            %th SerieInvCarres
+            %th= PiInvCarres.serie_inv_carres(5_000_000)
+          %tr
+            %th MethodeSerieInvCarres
+            %th= PiInvCarres.methode_serie_inv_carres(5_000_000)
+    .card
+      .card-header SerieInvCarresImparis
+      .card-body
+        .text-center n = 5 000 000
+        %table.table.table-sm.small
+          %tr
+            %th SerieInvCarresImparis
+            %th= PiInvCarresImparis.serie_inv_carres_imparis(5_000_000)
+          %tr
+            %th MethodeSerieInvCarresImparis
+            %th= PiInvCarresImparis.methode_serie_inv_carres_imparis(5_000_000)
+    .card
+      .card-header Ramanujan
+      .card-body
+        .text-center n = 5
+        %table.table.table-sm.small
+          %tr
+            %th MethodeSerieRamanujan
+            %th= PiRamanujan.methode_serie_ramanujan(5)
+    .card
+      .card-header Comparaison - InvCarres vs InvCarresImparis
+      .card-body
+        =line_chart @graph_versus
+
+    .card
+      .card-header Rapidité de convergence
+      .card-body
+        %table.table.table-sm.small
+          %tr
+            %th MethodeSerieInvCarres
+            %th= "n min : #{@i_serie_inv_carres}"
+          %tr
+            %th MethodeSerieInvCarresImparis
+            %th= "n min : #{@i_serie_inv_carres_imparis}"
+    .card
+      .card-header Nombres de décimales avec Ramanujan
+      .card-body
+        %table.table.table-sm.small
+          - 5.times do |i|
+            - r = PiRamanujan.methode_serie_ramanujan(i + 1)
+            %tr
+              %th= "n : #{i}"
+              %th= "%.25f" % (r)
+              %th= "Decimales: #{float_compare(Math::PI, r)}"
+
+    .card
+      .card-header Tirage Monte-Carlo
+      .card-body= scatter_chart @graph_monte_carlo, id: 'chart-monte-carlo', height: 450, colors: %w(blue grey), library: { legend: { enabled: false }, xAxis: { min: 0, max: 1, tickInterval: 0.1, labels: { enabled: false } }, yAxis: { min: 0, max: 1, tickInterval: 0.1, labels: { enabled: false } } }
+
+    .card
+      .card-header Monte-Carlo
+      .card-body
+        %table.table.table-sm.small
+          - (1000..10000).step(1000).each do |i|
+            - r = PiMonteCarlo.montecarlo(i)
+            %tr
+              %th= "n : #{i}"
+              %th= "%.25f" % (r)
+              %th= "Decimales: #{float_compare(Math::PI, r)}"
+
+    .card
+      .card-header Convergence Monte-Carlo
+      .card-body
+        = scatter_chart @graph_monte_carlo_convergence, library: { yAxis: { min: 2.5, max: 3.5, tickInterval: 0.5 } }
+
+    .card
+      .card-header Vitesse de convergence vers Pi à 10^-4
+      .card-body
+        %table.table.table-sm.small
+          %thead
+            %tr
+              %th Nombre d'executions
+              %th n moyen
+          %tr
+            %th 10
+            %th 1 626
+          %tr
+            %th 50
+            %th 1 433
+          %tr
+            %th 100
+            %th 1 286
