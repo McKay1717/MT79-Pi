@@ -52,7 +52,7 @@
           - 5.times do |i|
             - r = PiRamanujan.methode_serie_ramanujan(i + 1)
             %tr
-              %th= "n : #{i}"
+              %th= "n : #{i + 1}"
               %th= "%.25f" % (r)
               %th= "Decimales: #{float_compare(Math::PI, r)}"
 

@@ -11,3 +11,4 @@ class PiInvCarresImparis
     Math.sqrt(serie_inv_carres_imparis(n) * 8)
   end
 end
+Math

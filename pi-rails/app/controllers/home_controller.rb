@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-
     # Generate graph data
     @graph_versus = [
         { name: 'MethodeSerieInvCarres', data: 50.times.map { |n| [n, (PiInvCarres.methode_serie_inv_carres(n) - Math::PI).abs] } },
@@ -19,7 +18,7 @@ class HomeController < ApplicationController
     end
 
     # Generate graph data
-    data = PiMonteCarlo.tirage(1_000)
+    data = PiMonteCarlo.tirage(5_000)
     @graph_monte_carlo = [
         { name: 'Monte-Carlo', data: data.select { |n| n if (n[0]**2) + (n[1]**2) <= 1 } },
         { name: 'Monte-Carlo', data: data.select { |n| n if (n[0] ** 2) + (n[1] ** 2) > 1 } }

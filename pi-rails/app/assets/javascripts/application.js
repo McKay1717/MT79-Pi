@@ -21,8 +21,8 @@ function addCircle(chart) {
   if (this.circle) {
     $(this.circle.element).remove();
   }
-  this.circle = chart.renderer.circle(10, 430, 430).attr({
-    fill: 'rgba(120, 120, 120, 0.4)',
+  this.circle = chart.renderer.circle(10, 440, 430).attr({
+    fill: 'transparent',
     stroke: 'black',
     'stroke-width': 1
   });
